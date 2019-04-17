@@ -14,7 +14,7 @@ export class ApiService {
     constructor(private http: Http) {
 
         this.headers.set("Content-Type", "application/json");
-        this.headers.set("Authorization", "Basic "+ btoa("cspanda7:14ee1c82fb189f79f33c75d56c7a1ed839a1c9ac"));
+        this.headers.set("Authorization", "Basic "+ btoa("cspanda7:124be0774a70691e57700892ccede18ad7de1233"));
 
         this.requestOptions.headers = this.headers;
 
