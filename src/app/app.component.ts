@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import {User} from "./models/user";
+import {Repository} from "./models/repo";
 import {UserService} from "./services/user.service";
 import {RepositoryService} from "./services/repo.service";
+import {BranchService} from "./services/branch.service"
 
 import {Subject} from "rxjs";
 
@@ -20,41 +23,43 @@ export class AppComponent implements OnInit {
     };
 
     users: User[] = [];
+    repos: Repository[] = [];
     search: Subject<string> = new Subject<string>();
     selectedUser: User = new User();
     loadingFollowers: boolean = false;
 
 
-    constructor(private userService: UserService,private repositoryService:RepositoryService) {
+    constructor(private userService: UserService,private repositoryService:RepositoryService,private branchService:BranchService,
+    private router:Router) {
 
-        this.search.debounceTime(200).distinctUntilChanged().subscribe((searchTerm) => {
+        // this.search.debounceTime(200).distinctUntilChanged().subscribe((searchTerm) => {
 
-            // call to user service and search by query
+        //     // call to user service and search by query
 
-            this.userService.search(searchTerm).subscribe(res => {
+        //     this.userService.search(searchTerm).subscribe(res => {
 
-                this.users = res.items as User[];
-            });
-        });
-         this.repositoryService.getRepos().subscribe(res => {
-                console.log(res);
-            });
-        
+        //         this.users = res.items as User[];
+        //     });
+        // });
+      
     }
 
     ngOnInit() {
 
 
-        this.userService.getUsers().subscribe(res => {
+        // this.userService.getUsers().subscribe(res => {
 
-            this.cache.users = res; // store cached for next time.
+        //     this.cache.users = res; // store cached for next time.
 
-            this.users = res;
-        }, error => {
+        //     this.users = res;
+        // }, error => {
 
-            console.log(error); // for development only.
-        });
-
+        //     console.log(error); // for development only.
+        // });
+          this.repositoryService.getRepos().subscribe(res => {
+                this.repos=res as Repository[];
+                console.log(res as Repository[]);
+            });
     }
 
     /**
@@ -80,6 +85,9 @@ export class AppComponent implements OnInit {
         }
     }
 
+    viewBranches(repo:Repository){
+      this.router.navigate(['/branch']);
+    }
     viewUser(user: User) {
 
         this.selectedUser = user;

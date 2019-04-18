@@ -14,13 +14,10 @@ export class ApiService {
     constructor(private http: Http) {
 
         this.headers.set("Content-Type", "application/json");
-        this.headers.set("Authorization", "Basic "+ btoa("cspanda7:124be0774a70691e57700892ccede18ad7de1233"));
+        this.headers.set("Authorization", "Basic "+ btoa("cspanda7:75859ad327279f42443460c9c0cc24f57c1e13cd"));
 
         this.requestOptions.headers = this.headers;
-
-
     }
-
 
     getHeaders(): Headers {
 
@@ -85,7 +82,7 @@ export class ApiService {
             url = this.apiServer + '/' + endPoint;
         }
 
-
+        console.log(url);
         return url;
     }
 
