@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
+import { LoginComponent } from './pages/login/login.component';
 import { BranchComponent } from './pages/branch/branch.component';
 import { HomeComponent } from './pages/Home/home.component';
 
@@ -25,6 +26,7 @@ import {BranchService} from "./services/branch.service"
     BranchComponent,
     HeaderComponent,
     HomeComponent,
+    LoginComponent,
     DropdownDirective
   ],
   imports: [
