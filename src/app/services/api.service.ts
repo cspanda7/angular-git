@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class ApiService {
-
+//check insight-services
 
     private headers: Headers = new Headers();
     private requestOptions: RequestOptionsArgs = {};
