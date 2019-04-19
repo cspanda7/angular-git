@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class ApiService {
-
+//future useful reference -https://github.com/github-tools/github/blob/master/lib/Repository.js#L451-L473
 
     private headers: Headers = new Headers();
     private requestOptions: RequestOptionsArgs = {};
@@ -14,7 +14,7 @@ export class ApiService {
     constructor(private http: Http) {
 
         this.headers.set("Content-Type", "application/json");
-        this.headers.set("Authorization", "Basic "+ btoa("cspanda7:75859ad327279f42443460c9c0cc24f57c1e13cd"));
+        this.headers.set("Authorization", "Basic "+ btoa("cspanda7:85c1fb99e81d8a635c5466e875cbd730a368706d"));
 
         this.requestOptions.headers = this.headers;
     }

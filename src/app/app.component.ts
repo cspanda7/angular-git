@@ -14,9 +14,8 @@ import {Subject} from "rxjs";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    title = 'Welcome to Github';
 
-//comment added
+
     cache = {
         users: [],
         selectedUser: [],
@@ -56,10 +55,10 @@ export class AppComponent implements OnInit {
 
         //     console.log(error); // for development only.
         // });
-          this.repositoryService.getRepos().subscribe(res => {
-                this.repos=res as Repository[];
-                console.log(res as Repository[]);
-            });
+          // this.repositoryService.getRepos().subscribe(res => {
+          //       this.repos=res as Repository[];
+          //       console.log(res as Repository[]);
+          //   });
     }
 
     /**
@@ -85,9 +84,9 @@ export class AppComponent implements OnInit {
         }
     }
 
-    viewBranches(repo:Repository){
-      this.router.navigate(['/branch']);
-    }
+    // viewBranches(repo:Repository){
+    //   this.router.navigate(['/branch']);
+    // }
     viewUser(user: User) {
 
         this.selectedUser = user;
