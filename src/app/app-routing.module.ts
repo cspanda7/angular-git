@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core'
 import {Routes,RouterModule} from '@angular/router'
+import { AuthGuard } from './shared/auth.guard';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BranchComponent } from './pages/branch/branch.component';
@@ -8,7 +10,7 @@ import { HomeComponent } from './pages/Home/home.component';
 const approute:Routes=[
   { path:'',redirectTo:'/login',pathMatch:'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'branch', component: BranchComponent },
   { path:'branch/:name',component:BranchComponent },
 ];
